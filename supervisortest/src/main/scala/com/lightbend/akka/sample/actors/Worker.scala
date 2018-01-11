@@ -13,6 +13,9 @@ class WorkerActor extends Actor{
 		super.postRestart(reason);
 	}
 
+	override def preStart() = println("Worker is starting up ... ");
+	override def postStop() = println("Worker is shutting down ... ");
+
 	override def receive: Receive = {
 		case Message(msg) => println(msg)
 	}
