@@ -1,8 +1,14 @@
 package com.lightbend.akka.sample.actors;
-import com.lightbend.akka.sample.msg.Message;
-import akka.actor.Actor;
+import com.lightbend.akka.sample.msg._;
+import akka.actor.{Actor, Props};
 
-class WorkerActor extends Actor{
+object WorkerActor{
+	def props(name: String) = Props(new WorkerActor(name));
+}
+
+class WorkerActor(name: String) extends Actor{
+	val myName = name;
+
 	override def preRestart(reason: Throwable, message: Option[Any]) = {
 		println("Worker actor is now restarting ... ");
 		super.preRestart(reason, message)
@@ -13,10 +19,10 @@ class WorkerActor extends Actor{
 		super.postRestart(reason);
 	}
 
-	override def preStart() = println("Worker is starting up ... ");
-	override def postStop() = println("Worker is shutting down ... ");
+	override def preStart() = println(String.format("Worker %s is starting up ... ", myName));
+	override def postStop() = println(String.format("Worker %s is shutting down ... ", myName));
 
 	override def receive: Receive = {
-		case Message(msg) => println(msg)
+		case DispMessage(msg) => println(msg)
 	}
 }

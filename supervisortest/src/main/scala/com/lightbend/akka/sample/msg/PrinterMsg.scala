@@ -1,3 +1,4 @@
 package  com.lightbend.akka.sample.msg;
 
-case class Message(msg: String)
+case class DispMessage(msg: String);
+case class ResetMessage();

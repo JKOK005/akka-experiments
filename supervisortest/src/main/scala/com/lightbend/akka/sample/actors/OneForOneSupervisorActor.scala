@@ -2,7 +2,7 @@ package com.lightbend.akka.sample.actors
 
 import akka.actor.SupervisorStrategy._
 import akka.actor.{Actor, OneForOneStrategy, Props}
-import com.lightbend.akka.sample.msg.Message;
+import com.lightbend.akka.sample.msg._;
 
 class SupervisorActor extends Actor{
 
@@ -13,9 +13,9 @@ class SupervisorActor extends Actor{
 		case _: Exception => Restart
 	}
 
-	val worker = context.actorOf(Props[WorkerActor], "WorkerActor1");
+	val worker = context.actorOf(WorkerActor.props("Bob"), "WorkerNamedBob");
 
 	override def receive: Receive = {
-		case Message(msg) => worker ! Message(msg);
+		case DispMessage(msg) => worker ! DispMessage(msg);
 	}
 }
