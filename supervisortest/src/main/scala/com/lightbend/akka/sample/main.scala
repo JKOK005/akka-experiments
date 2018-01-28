@@ -10,4 +10,5 @@ object MainProgramme extends App {
 	rootSupervisor ! DispMessage("This is a test message");
 	rootSupervisor ! DispMessage("2nd test message");
 	rootSupervisor ! DispMessage("3rd test message");
+	rootSupervisor ! PoisonAllMessage();
 }

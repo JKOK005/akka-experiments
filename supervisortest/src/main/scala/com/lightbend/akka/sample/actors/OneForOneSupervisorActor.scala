@@ -1,10 +1,10 @@
 package com.lightbend.akka.sample.actors
 
-import akka.actor.ActorRef
+import akka.actor.{ActorRef, PoisonPill}
 import akka.actor.SupervisorStrategy._
 import akka.actor.{Actor, OneForOneStrategy, Props}
 import com.lightbend.akka.sample.msg._;
-import akka.routing.{RoundRobinRoutingLogic, RoundRobinPool};
+import akka.routing.{RoundRobinPool, Broadcast};
 
 class SupervisorActor extends Actor{
 	override def preStart() = println("Supervisor is starting up ... ");
@@ -14,9 +14,13 @@ class SupervisorActor extends Actor{
 		case _: Exception => Restart
 	}
 
-	val roundRobinActor : ActorRef = context.actorOf(RoundRobinPool(10).props(Props[WorkerActor]), "roundRobinRouter")
+	val roundRobinActor: ActorRef = context.actorOf(RoundRobinPool(10).props(Props[WorkerActor]), "roundRobinRouter")
 
 	override def receive: Receive = {
 		case DispMessage(msg) => roundRobinActor ! DispMessage(msg);
+
+		case PoisonAllWorkersMessage() => {
+			roundRobinActor ! Broadcast(PoisonPill);
+		}
 	}
 }
