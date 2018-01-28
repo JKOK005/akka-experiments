@@ -1410,7 +1410,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.14.3!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 252ms :: artifacts dl 6ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 313ms :: artifacts dl 6ms[0m
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 compile produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 runtime produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 test produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-test.xml[0m
@@ -1424,5 +1424,5 @@
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 docs produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 pom produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for akka-quickstart-scala#akka-quickstart-scala_2.12;1.0 scala-tool produced in /home/johan/Desktop/johan/akka-experiments/supervisortest/target/resolution-cache/reports/akka-quickstart-scala-akka-quickstart-scala_2.12-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (252ms resolve - 6ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (313ms resolve - 6ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

@@ -8,4 +8,6 @@ object MainProgramme extends App {
 	val system: ActorSystem = ActorSystem("HelloAkka");
 	val rootSupervisor: ActorRef = system.actorOf(Props[SupervisorActor], "DesSupervisor");
 	rootSupervisor ! DispMessage("This is a test message");
+	rootSupervisor ! DispMessage("2nd test message");
+	rootSupervisor ! DispMessage("3rd test message");
 }

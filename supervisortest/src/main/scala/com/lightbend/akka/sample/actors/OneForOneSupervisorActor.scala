@@ -1,11 +1,12 @@
 package com.lightbend.akka.sample.actors
 
+import akka.actor.ActorRef
 import akka.actor.SupervisorStrategy._
 import akka.actor.{Actor, OneForOneStrategy, Props}
 import com.lightbend.akka.sample.msg._;
+import akka.routing.{RoundRobinRoutingLogic, RoundRobinPool};
 
 class SupervisorActor extends Actor{
-
 	override def preStart() = println("Supervisor is starting up ... ");
 	override def postStop() = println("Supervisor is shutting down ... ");
 
@@ -13,9 +14,9 @@ class SupervisorActor extends Actor{
 		case _: Exception => Restart
 	}
 
-	val worker = context.actorOf(WorkerActor.props("Bob"), "WorkerNamedBob");
+	val roundRobinActor : ActorRef = context.actorOf(RoundRobinPool(10).props(Props[WorkerActor]), "roundRobinRouter")
 
 	override def receive: Receive = {
-		case DispMessage(msg) => worker ! DispMessage(msg);
+		case DispMessage(msg) => roundRobinActor ! DispMessage(msg);
 	}
 }
