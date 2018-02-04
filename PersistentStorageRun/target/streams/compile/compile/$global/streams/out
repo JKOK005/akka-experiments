@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/PersistentStorageRun/src/main/scala/com/lightbend/akka/actor/PersistentActor.scala:47:11: value warn is not a member of akka.event.LoggingAdapter[0m
+[0m[[0m[31merror[0m] [0m[0m    		log.warn("Issued command to terminate");[0m
+[0m[[0m[31merror[0m] [0m[0m    		    ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
