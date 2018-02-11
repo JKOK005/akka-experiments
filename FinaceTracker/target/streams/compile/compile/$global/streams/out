@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Models/Models.scala:4:8: identifier expected but 'class' found.[0m
+[0m[[0m[31merror[0m] [0m[0m	class class Receipt(credit: Double, reason: String = "No reason"){[0m
+[0m[[0m[31merror[0m] [0m[0m	      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

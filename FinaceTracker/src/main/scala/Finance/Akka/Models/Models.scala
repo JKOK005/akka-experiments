@@ -1,5 +1,7 @@
+package Finance.Akka.Models
+
 object Models{
-	class Receipt(credit: Double, reason: String = "No reason"){
+	case class Receipt(credit: Double, reason: String = "No reason"){
 		def getCredit() = credit;
 		def getReason() = reason;
 		def getInfo() 	= List(credit, reason);
@@ -12,5 +14,9 @@ object Models{
 				r :: receiptCollection
 			);
 		}
+
+		def receiptCounts() = receiptCollection.length;
+		def getTotalAmount() = totalAmount;
+		def getReceipts() = receiptCollection;
 	}
 }
