@@ -14,9 +14,11 @@ object Models{
 				r :: receiptCollection
 			);
 		}
-
 		def receiptCounts() = receiptCollection.length;
 		def getTotalAmount() = totalAmount;
 		def getReceipts() = receiptCollection;
 	}
+
+	case class CreateActor(actorId: String);
+	case class InstructActor(actorId: String, command: String);
 }

@@ -5,9 +5,16 @@ import akka.persistence._;
 import akka.event.Logging;
 import Finance.Akka.Models.Models._;
 
+object TrackerWorkerBaseClass{
+	def props(workerId: String): Props = Props(new TrackerWorkerBaseClass(workerId));
+}
+
 class TrackerWorkerBaseClass(workerId: String) extends PersistentActor with ActorLogging{
 	var state = BankAccountState();
 	override def persistenceId: String = workerId;
+
+	override def preStart() = log.info("Actor {} starting up", self.path.name);
+	override def postStop() = log.info("Actor {} shutting down", self.path.name);
 
 	def addState(r:Receipt) = {
 		state = state.update(r);
