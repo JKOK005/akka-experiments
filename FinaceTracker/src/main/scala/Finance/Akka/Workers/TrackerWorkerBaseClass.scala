@@ -1,10 +1,10 @@
 package Finance.Akka.Workers;
 
-import akka.actor.{Actor, ActorRef, Props};
+import akka.actor.{Actor, ActorRef, ActorLogging, Props};
 import akka.persistence._;
 import akka.event.Logging;
 
-class TrackerWorkerBaseClass extends Actor{
-	val logger = Logging(context.system, this);
-
+class TrackerWorkerBaseClass extends Actor with ActorLogging{
+	
+	
 }
