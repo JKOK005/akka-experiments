@@ -4,7 +4,7 @@
 		module="akka-quickstart-scala_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20180211002420"
+		publication="20180212223453"
 	>
 		<description>
 		akka-quickstart-scala
@@ -38,5 +38,7 @@
 		<dependency org="com.typesafe.akka" name="akka-persistence_2.12" rev="2.5.9" conf="compile->default(compile)"/>
 		<dependency org="org.iq80.leveldb" name="leveldb" rev="0.7" conf="compile->default(compile)"/>
 		<dependency org="org.fusesource.leveldbjni" name="leveldbjni-all" rev="1.8" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-slf4j_2.12" rev="2.5.9" conf="compile->default(compile)"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

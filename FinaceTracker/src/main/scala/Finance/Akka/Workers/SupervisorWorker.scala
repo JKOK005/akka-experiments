@@ -7,7 +7,6 @@ import akka.routing.{Broadcast};
 import collection.mutable.HashMap;
 
 class SupervisorWorker extends Actor with ActorLogging{
-
 	override def preStart() 	= log.info("Supervisor {} starting up", self.path.name);
 	override def postStop() 	= log.info("Supervisor {} shutting down", self.path.name);
 	override def preRestart(reason: Throwable, message: Option[Any]) = {
