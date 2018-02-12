@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Workers/SupervisorWorker.scala:36:36: value ! is not a member of Option[akka.actor.ActorRef][0m
-[0m[[0m[31merror[0m] [0m[0m				subAccountTracker.get(actorId) ! command;[0m
-[0m[[0m[31merror[0m] [0m[0m				                               ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Workers/SupervisorWorker.scala:35:22: value WARN is not a member of akka.event.LoggingAdapter[0m
+[0m[[0m[31merror[0m] [0m[0m				case None => log.WARN("Actor {} does not yet exist", actorId);[0m
+[0m[[0m[31merror[0m] [0m[0m				                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:10:19: not found: value CreateActor[0m
+[0m[[0m[31merror[0m] [0m[0m	rootsupervisor ! CreateActor("savings-account");[0m
+[0m[[0m[31merror[0m] [0m[0m	                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

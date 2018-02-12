@@ -7,7 +7,6 @@ import akka.routing.{Broadcast};
 import collection.mutable.HashMap;
 
 class SupervisorWorker extends Actor with ActorLogging{
-	var subAccountTracker = new HashMap[String, ActorRef];
 
 	override def preStart() 	= log.info("Supervisor {} starting up", self.path.name);
 	override def postStop() 	= log.info("Supervisor {} shutting down", self.path.name);
@@ -28,12 +27,12 @@ class SupervisorWorker extends Actor with ActorLogging{
 		case CreateActor(actorId: String) => {
 			log.info("Creating actor ID: {}", actorId);
 			var newActor: ActorRef = context.actorOf(TrackerWorkerBaseClass.props(actorId), actorId);
-			subAccountTracker += (actorId -> newActor);
 		}
 
-		case InstructActor(actorId: String, command: String) => {
-			if(subAccountTracker.contains(actorId)){
-				subAccountTracker.get(actorId) ! command;
+		case InstructActor(actorId: String, command: Any) => { 
+			context.child(actorId) match {
+				case Some(referredActor) => referredActor ! command;
+				case None => log.warning("Actor {} does not yet exist", actorId);
 			}
 		}
 	}

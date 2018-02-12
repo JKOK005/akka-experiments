@@ -37,7 +37,7 @@ class TrackerWorkerBaseClass(workerId: String) extends PersistentActor with Acto
 			log.info("Persisting receipt value: {}, comment: {}", amt, comment);
 			persist(Receipt(amt, comment))(addState);
 		}
-		case "showValue" => sender() ! state.getTotalAmount();
+		case "showValue" 	=> sender() ! state.getTotalAmount();
 		case "showReceipts" => sender() ! state.getReceipts();
 
 		case "takeSnapShot" => saveSnapshot(state);
