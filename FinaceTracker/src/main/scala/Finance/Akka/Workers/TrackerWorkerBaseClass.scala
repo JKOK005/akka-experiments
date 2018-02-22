@@ -12,9 +12,10 @@ object TrackerWorkerBaseClass{
 class TrackerWorkerBaseClass(workerId: String) extends PersistentActor with ActorLogging{
 	var state = BankAccountState();
 	override def persistenceId: String = workerId;
-
 	override def preStart() = log.info("Actor {} starting up", self.path.name);
 	override def postStop() = log.info("Actor {} shutting down", self.path.name);
+
+	val loggerActorRef: ActorRef = context.actorOf(LoggerWorkerClass.props(workerId));
 
 	def addState(r:Receipt) = {
 		state = state.update(r);
@@ -37,8 +38,8 @@ class TrackerWorkerBaseClass(workerId: String) extends PersistentActor with Acto
 			log.info("Persisting receipt value: {}, comment: {}", amt, comment);
 			persist(Receipt(amt, comment))(addState);
 		}
-		case "showValue" 	=> sender() ! state.getTotalAmount();
-		case "showReceipts" => sender() ! state.getReceipts();
+		case "showValue" 	=> this.loggerActorRef ! state.getTotalAmount().toString;
+		case "showReceipts" => this.loggerActorRef ! state.getReceipts();
 
 		case "takeSnapShot" => saveSnapshot(state);
 		case SaveSnapshotSuccess(metadata) =>

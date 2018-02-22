@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Workers/LoggerWorker.scala:17:17: non-variable type argument Finance.Akka.Models.Models.Receipt in type pattern List[Finance.Akka.Models.Models.Receipt] (the underlying of List[Finance.Akka.Models.Models.Receipt]) is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m		case receipt: List[Receipt] => {[0m
+[0m[[0m[33mwarn[0m] [0m[0m		              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

@@ -8,5 +8,6 @@ object Main extends App{
 	val system = ActorSystem("FinanceTrackerApp");
 	val rootsupervisor = system.actorOf(Props[SupervisorWorker], "account-supervisor");
 	rootsupervisor ! CreateActor("savings-account");
-	rootsupervisor ! "showValue";
+	rootsupervisor ! InstructActor("savings-account","showValue");
+	rootsupervisor ! InstructActor("savings-account","showReceipts");
 }
