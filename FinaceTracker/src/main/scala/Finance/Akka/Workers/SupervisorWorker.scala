@@ -25,7 +25,7 @@ class SupervisorWorker extends Actor with ActorLogging{
 	override def receive: Receive = {
 		case CreateActor(actorId: String) => {
 			log.info("Creating actor ID: {}", actorId);
-			val newActor: ActorRef = context.actorOf(TrackerWorkerBaseClass.props(actorId), actorId);
+			val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);
 		}
 
 		case InstructActor(actorId: String, command: Any) => { 

@@ -5,15 +5,15 @@ import akka.event.Logging;
 import Finance.Akka.Models.Models._;
 
 object LoggerWorkerClass{
-	def props(actorId:String): Props = Props(new LoggerWorkerClass(actorId));
+	def props(): Props = Props(new LoggerWorkerClass());
 }
 
-class LoggerWorkerClass(actorId:String) extends Actor with ActorLogging{
-	override def preStart() = log.info("Actor {}-logger starting up", actorId);
-	override def postStop() = log.info("Actor {}-logger shutting down", actorId);
+class LoggerWorkerClass extends Actor with ActorLogging{
+	override def preStart() = log.info("Actor {}-logger starting up", self.path.name);
+	override def postStop() = log.info("Actor {}-logger shutting down", self.path.name);
 
 	override def receive:Receive = {
-		case msg: String => log.info("Current value in {}: {}", actorId, msg);
+		case msg: String => log.info("Current value in {}: {}", self.path.name, msg);
 		case receipt: List[Receipt] => {
 			log.info("Begin start of records:");
 			receipt.foreach{println};

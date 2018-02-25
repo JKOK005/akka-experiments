@@ -11,5 +11,5 @@ libraryDependencies ++= Seq(
 	"org.iq80.leveldb" % "leveldb" % "0.7",
 	"org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
 	"com.typesafe.akka" %% "akka-slf4j" % "2.5.9",
-	"ch.qos.logback" % "logback-classic" % "1.2.3"
+	"ch.qos.logback" % "logback-classic" % "1.2.3",
 )
