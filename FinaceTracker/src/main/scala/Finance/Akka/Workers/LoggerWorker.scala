@@ -2,7 +2,7 @@ package Finance.Akka.Workers;
 
 import akka.actor.{Actor, ActorRef, ActorLogging, Props};
 import akka.event.Logging;
-import Finance.Akka.Models.Models._;
+import Finance.Akka.Models.AccountSummaryModels._;
 
 object LoggerWorkerClass{
 	def props(): Props = Props(new LoggerWorkerClass());

@@ -1,6 +1,6 @@
 package Finance.Akka.Models
 
-object Models{
+object AccountSummaryModels{
 	case class Receipt(credit: Double, reason: String = "No reason"){
 		def getCredit() = credit;
 		def getReason() = reason;

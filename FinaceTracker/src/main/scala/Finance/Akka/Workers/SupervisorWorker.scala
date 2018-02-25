@@ -2,7 +2,7 @@ package Finance.Akka.Workers;
 
 import akka.actor.{ActorRef, Actor, ActorLogging, OneForOneStrategy, Props, PoisonPill};
 import akka.actor.SupervisorStrategy._;
-import Finance.Akka.Models.Models._;
+import Finance.Akka.Models.AccountSummaryModels._;
 import akka.routing.{Broadcast};
 import collection.mutable.HashMap;
 
