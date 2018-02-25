@@ -2,7 +2,7 @@ package Finance.Akka;
 
 import akka.actor.{ActorSystem, ActorRef, Props};
 import Finance.Akka.Workers._;
-import Finance.Akka.Models.Models._;
+import Finance.Akka.Models.AccountSummaryModels._;
 import com.typesafe.config.ConfigFactory;
 
 object Main extends App{

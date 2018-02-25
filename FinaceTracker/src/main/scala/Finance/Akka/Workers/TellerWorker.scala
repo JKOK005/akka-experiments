@@ -9,6 +9,8 @@ object TellerWorker{
 }
 
 class TellerWorker extends PersistentActorBase{
+	var state = BankAccountState();
+
 	def addState(r:Receipt) = {
 		state = state.update(r);
 		if(state.receiptCounts()%20 == 0){

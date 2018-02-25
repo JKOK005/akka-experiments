@@ -20,5 +20,5 @@ object AccountSummaryModels{
 	}
 
 	case class CreateActor(actorId: String);
-	case class InstructActor(actorId: String, command: String);
+	case class InstructActor(actorId: String, command: Any);
 }
