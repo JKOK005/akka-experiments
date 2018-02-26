@@ -3,25 +3,25 @@ package Finance.Akka.Workers;
 import akka.actor.{Props};
 import akka.persistence._;
 import akka.event.Logging;
-import Finance.Akka.Models.AccountSummaryModels._;
+import Finance.Akka.Models.AccountMetadataModels._;
 
 object AccountsTracker{
 	def props(): Props = Props(new AccountsTracker());
 }
 
 class AccountsTracker extends PersistentActorBase{
-	var state = BankAccountState();
+	var state = BankAccountsRecord();
 
-	def addState(r:Receipt) = {
-		state = state.update(r);
-		if(state.receiptCounts()%20 == 0){
+	def addState(newState: List[String]) = {
+		state = state.update(newState);
+		if(state.getRecordCounts()%20 == 0){
 			self ! "takeSnapShot";
 		}
 	}
 
 	override def receiveRecover: Receive = {
-		case r: Receipt => addState(r);
-		case SnapshotOffer(_, snapshot: BankAccountState) => {
+		case newState: List[String] => addState(newState);
+		case SnapshotOffer(_, snapshot: BankAccountsRecord) => {
 			log.info("Restoration of actor via snapshot");
 			state = snapshot;
 		}
@@ -29,12 +29,26 @@ class AccountsTracker extends PersistentActorBase{
 	}
 
 	override def receiveCommand: Receive = {
-		case Receipt(amt: Double, comment: String) => {
-			log.info("Persisting receipt value: {}, comment: {}", amt, comment);
-			persist(Receipt(amt, comment))(addState);
+		case newState: List[Any] => {
+			newState match {
+				case validNewState: List[String] => {
+					if(validNewState != state.getCurrentAccounts()){
+						log.info("Persisting accounts state: {}", validNewState);
+						persist(validNewState)(addState);
+					}else{
+						log.warning("New state {} not persisted since nothing has changed from the previous state", validNewState);
+					}
+				}
+				case _ => {
+					log.warning("Invalid state given {}", newState)
+				}
+			}
 		}
-		case "showValue" 	=> this.loggerActorRef ! state.getTotalAmount().toString;
-		case "showReceipts" => this.loggerActorRef ! state.getReceipts();
+
+		case "showAccounts" => {
+			println("Present account IDs");
+			state.getCurrentAccounts.foreach{println};
+		}
 
 		case "takeSnapShot" => saveSnapshot(state);
 		case SaveSnapshotSuccess(metadata) =>
