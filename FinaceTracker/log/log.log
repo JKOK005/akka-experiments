@@ -4,3 +4,8 @@
 2018-03-01 23:26:57,768,Restoration completed for account-tracker
 2018-03-01 23:27:00,634,Actor account-tracker_logger-logger shutting down
 2018-03-01 23:27:00,635,Actor account-tracker shutting down
+2018-03-01 23:28:13,664,Slf4jLogger started
+2018-03-01 23:28:29,302,Slf4jLogger started
+2018-03-02 00:19:05,664,Slf4jLogger started
+2018-03-02 00:21:52,143,Slf4jLogger started
+2018-03-02 00:23:04,270,Slf4jLogger started

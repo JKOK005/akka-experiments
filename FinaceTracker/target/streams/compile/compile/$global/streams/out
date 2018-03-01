@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Utils/UI.scala:4:18: identifier expected but 'val' found.[0m
-[0m[[0m[31merror[0m] [0m[0m	def clearScreen(val spaces: Int) = {[0m
-[0m[[0m[31merror[0m] [0m[0m	                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Utils/UI.scala:17:1: ':' expected but '}' found.[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Utils/UI.scala:38:17: not found: value resp[0m
+[0m[[0m[31merror[0m] [0m[0m				"name" 		-> resp,[0m
+[0m[[0m[31merror[0m] [0m[0m				       		   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
