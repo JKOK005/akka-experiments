@@ -1,0 +1,6 @@
+2018-03-01 23:26:57,534,Slf4jLogger started
+2018-03-01 23:26:57,612,Actor account-tracker_logger-logger starting up
+2018-03-01 23:26:57,623,Actor account-tracker starting up
+2018-03-01 23:26:57,768,Restoration completed for account-tracker
+2018-03-01 23:27:00,634,Actor account-tracker_logger-logger shutting down
+2018-03-01 23:27:00,635,Actor account-tracker shutting down
