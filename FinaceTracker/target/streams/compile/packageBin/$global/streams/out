@@ -66,10 +66,14 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountSummaryModels$CreateActor.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models/AccountSummaryModels$CreateActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Utils/BankUserInterface.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Utils/BankUserInterface.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Workers/SupervisorWorker$$anonfun$receive$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Workers/SupervisorWorker$$anonfun$receive$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountSummaryModels$BankAccountState$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models/AccountSummaryModels$BankAccountState$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Utils[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Utils[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Workers/LoggerWorkerClass.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Workers/LoggerWorkerClass.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Workers/PersistentActorBase.class[0m
