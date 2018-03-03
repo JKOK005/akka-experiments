@@ -12,3 +12,6 @@
 2018-03-03 13:44:26,451,Slf4jLogger started
 2018-03-03 13:45:41,733,Slf4jLogger started
 2018-03-03 13:47:08,788,Slf4jLogger started
+2018-03-03 14:29:08,064,Slf4jLogger started
+2018-03-03 14:29:15,038,Using the default Java serializer for class [scala.collection.immutable.$colon$colon] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-03 14:31:12,196,Slf4jLogger started

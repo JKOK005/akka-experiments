@@ -1,4 +1,4 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:36:26: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:40:26: match may not be exhaustive.[0m
 [0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: None[0m
 [0m[[0m[33mwarn[0m] [0m[0m												userInput.get("name") match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m												             ^[0m

@@ -23,9 +23,13 @@ object Main extends App{
 		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
 
 		future onComplete {
-			case Success(value) => println(value);
-			case Failure(ex) 	=> ex.printStackTrace;
+			case Success(accounts) 	=> AccountsTrackerWorker ! newAccount::accounts;
+			case Failure(ex) 		=> ex.printStackTrace;
 		}
+	}
+
+	private[this] def showExistingAccounts() = {
+		AccountsTrackerWorker ! "showAccounts";
 	}
 
 	while(true){
@@ -38,7 +42,7 @@ object Main extends App{
 												};
 											};
 			case "delete_account" 		=> 
-			case "show_account" 		=> 
+			case "show_account" 		=> this.showExistingAccounts();
 			case "modify_account" 		=> 
 			case "terminate" 			=> break;
 			case "invalid" 				=> Unit;
