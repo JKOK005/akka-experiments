@@ -23,7 +23,10 @@ object Main extends App{
 		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
 
 		future onComplete {
-			case Success(accounts) 	=> AccountsTrackerWorker ! newAccount::accounts;
+			case Success(accounts) 	=> 	{	
+											AccountsTrackerWorker ! newAccount::accounts;
+											rootsupervisor ! CreateActor(newAccount);
+										}
 			case Failure(ex) 		=> ex.printStackTrace;
 		}
 	}
@@ -50,24 +53,33 @@ object Main extends App{
 		Await.result(future, 500 millis); 	// Blocks until all accounts have been shown
 	}
 
+	private[this] def modifyAccount(account: String, amount: Double, reason: String) = {
+		implicit val timeout: Timeout = Timeout(500 millis);
+		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
+
+		future onComplete {
+			case Success(accounts) 	=> 	{
+											if(accounts.contains(account)){
+												rootsupervisor ! InstructActor(account, Receipt(amount, reason));
+											}else{
+												println("Account: $account is not present");
+											}
+										}
+			case Failure(ex) 		=> ex.printStackTrace;
+		}
+	}
+
 	while(true){
 		screen.displayMainView();
 		var userInput: Map[String, Any] = screen.receiveUserInput();
 		userInput.getOrElse("action", "invalid") match {
-			case "create_new_account" 	=> 	{
-												userInput.get("name") match {
-													case Some(name) => this.newAccountCreation(name.asInstanceOf[String]);
-												};
-											};
-			
-			case "delete_account" 		=> 	{
-												userInput.get("name") match {
-													case Some(name) => this.deleteAccount(name.asInstanceOf[String]);
-												};
-											};
-			
+			case "create_new_account" 	=> 	this.newAccountCreation(userInput("name").asInstanceOf[String]);
+			case "delete_account" 		=> 	this.deleteAccount(userInput("name").asInstanceOf[String]);
 			case "show_account" 		=> 	this.showExistingAccounts();
-			case "modify_account" 		=> 	
+			case "modify_account" 		=> 	this.modifyAccount(userInput("name").asInstanceOf[String], 
+																userInput("amount").asInstanceOf[Double], 
+																userInput("reason").asInstanceOf[String]
+															);
 			case "terminate" 			=> 	break;
 			case "invalid" 				=> 	Unit;
 		}

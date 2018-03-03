@@ -20,3 +20,14 @@
 2018-03-03 22:53:51,859,Slf4jLogger started
 2018-03-03 23:04:09,999,Slf4jLogger started
 2018-03-03 23:42:47,842,Slf4jLogger started
+2018-03-04 00:21:03,220,Slf4jLogger started
+2018-03-04 00:21:14,155,Using the default Java serializer for class [scala.collection.immutable.$colon$colon] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-04 00:24:13,844,Slf4jLogger started
+2018-03-04 00:25:06,734,Using the default Java serializer for class [scala.collection.immutable.$colon$colon] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-04 00:27:18,914,Slf4jLogger started
+2018-03-04 00:27:27,966,Using the default Java serializer for class [scala.collection.immutable.$colon$colon] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-04 00:27:39,323,Actor test does not yet exist
+2018-03-04 00:30:42,517,Slf4jLogger started
+2018-03-04 00:30:46,522,Using the default Java serializer for class [scala.collection.immutable.$colon$colon] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-04 00:30:52,702,Using the default Java serializer for class [scala.collection.immutable.Nil$] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'
+2018-03-04 00:31:37,041,Using the default Java serializer for class [Finance.Akka.Models.AccountSummaryModels$Receipt] which is not recommended because of performance implications. Use another serializer or disable this warning using the setting 'akka.actor.warn-about-java-serializer-usage'

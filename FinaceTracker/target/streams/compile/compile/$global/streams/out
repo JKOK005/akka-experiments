@@ -1,10 +1,2 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:58:26: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: None[0m
-[0m[[0m[33mwarn[0m] [0m[0m												userInput.get("name") match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m												             ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:64:26: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: None[0m
-[0m[[0m[33mwarn[0m] [0m[0m												userInput.get("name") match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m												             ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mthere were 5 feature warnings; re-run with -feature for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mthree warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 6 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
