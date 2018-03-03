@@ -45,7 +45,9 @@ object Main extends App{
 	}
 
 	private[this] def showExistingAccounts() = {
-		AccountsTrackerWorker ! "showAccounts";
+		implicit val timeout: Timeout = Timeout(500 millis);
+		val future: Future[String] 	= (AccountsTrackerWorker ? "showAccounts").mapTo[String];
+		Await.result(future, 500 millis); 	// Blocks until all accounts have been shown
 	}
 
 	while(true){

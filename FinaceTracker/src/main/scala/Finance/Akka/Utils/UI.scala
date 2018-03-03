@@ -21,7 +21,7 @@ class BankUserInterface{
 	}
 
 	private[this] def modifyAccount(): Map[String, Any] = {
-		val respAccount = readLine("Select accoun to modify: ");
+		val respAccount = readLine("Select account to modify: ");
 
 		println("1) Add");
 		println("2) Deduct");
@@ -64,6 +64,7 @@ class BankUserInterface{
 	}
 
 	def receiveUserInput(): Map[String, Any] = {
+		this.clearScreen(10);
 		val input = readLine("Selection -> ");
 		input match{
 			case "1" => this.newAccountCreation();
@@ -73,7 +74,6 @@ class BankUserInterface{
 			case "5" => this.terminateApp();
 			case _ => {
 				println("You have selected an invalid input");
-				this.clearScreen(10);
 				Map("action" 	-> "invalid");
 			}
 		}

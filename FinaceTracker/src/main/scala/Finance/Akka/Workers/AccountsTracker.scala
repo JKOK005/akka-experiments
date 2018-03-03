@@ -48,6 +48,7 @@ class AccountsTracker extends PersistentActorBase{
 		case "showAccounts" => {
 			println("Present account IDs");
 			state.getCurrentAccounts.foreach{println};
+			sender() ! "ResponseOk";
 		}
 
 		case "getAccounts" 	=> {
