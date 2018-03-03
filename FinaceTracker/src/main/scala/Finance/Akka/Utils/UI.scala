@@ -2,25 +2,25 @@ package Finance.Akka.Utils;
 import scala.io.StdIn._;
 
 class BankUserInterface{
-	private[this] def newAccountCreation() = {
+	private[this] def newAccountCreation(): Map[String, Any] = {
 		val resp = readLine("Key in the name of new account to be created: ");
 		Map("action" 	-> "create_new_account", 
 			"name" 		-> resp
 		);
 	}
 
-	private[this] def deleteExistingAccount() = {
+	private[this] def deleteExistingAccount(): Map[String, Any] = {
 		val resp = readLine("Key in the name of existing account to delete: ");
 		Map("action" 	-> "delete_account", 
 			"name" 		-> resp
 		);
 	}
 
-	private[this] def showAccountInformation() = {
+	private[this] def showAccountInformation(): Map[String, Any] = {
 		Map("action" 	-> "show_account");
 	}
 
-	private[this] def modifyAccount() = {
+	private[this] def modifyAccount(): Map[String, Any] = {
 		val respAccount = readLine("Select accoun to modify: ");
 
 		println("1) Add");
@@ -40,8 +40,12 @@ class BankUserInterface{
 			);
 		}else{
 			println("Invalid input");
-			"invalid"
+			Map("action" 	-> "invalid");
 		}
+	}
+
+	private[this] def terminateApp() = {
+		Map("action" 	-> "terminate");
 	}
 
 	def clearScreen(spaces: Int) = {
@@ -59,17 +63,18 @@ class BankUserInterface{
 		println("5) Exit app");
 	}
 
-	def receiveUserInput(): Any = {
+	def receiveUserInput(): Map[String, Any] = {
 		val input = readLine("Selection -> ");
 		input match{
 			case "1" => this.newAccountCreation();
 			case "2" => this.deleteExistingAccount();
 			case "3" => this.showAccountInformation();
 			case "4" => this.modifyAccount();
-			case "5" => "terminate";
+			case "5" => this.terminateApp();
 			case _ => {
 				println("You have selected an invalid input");
-				this.clearScreen(5);
+				this.clearScreen(10);
+				Map("action" 	-> "invalid");
 			}
 		}
 	}

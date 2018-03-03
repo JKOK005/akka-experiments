@@ -50,6 +50,10 @@ class AccountsTracker extends PersistentActorBase{
 			state.getCurrentAccounts.foreach{println};
 		}
 
+		case "getAccounts" 	=> {
+			sender() ! state.getCurrentAccounts();
+		}
+
 		case "takeSnapShot" => saveSnapshot(state);
 		case SaveSnapshotSuccess(metadata) =>
 	      println(s"SaveSnapshotSuccess(metadata): metadata=$metadata");

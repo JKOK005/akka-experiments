@@ -1,4 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/Utils/UI.scala:38:17: not found: value resp[0m
-[0m[[0m[31merror[0m] [0m[0m				"name" 		-> resp,[0m
-[0m[[0m[31merror[0m] [0m[0m				       		   ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/johan/Desktop/johan/akka-experiments/FinaceTracker/src/main/scala/Finance/Akka/main.scala:36:26: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: None[0m
+[0m[[0m[33mwarn[0m] [0m[0m												userInput.get("name") match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m												             ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were two feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
