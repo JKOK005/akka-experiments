@@ -32,11 +32,13 @@ class BankUserInterface{
 			case _ 	 => 0;
 		}
 		val amount: Double = readLine("Key in value: ").toDouble;
+		val reason: String = readLine("State a reason: ");
 
 		if(multiplier != 0){
 			Map("action" 	-> "modify_account", 
 				"name" 		-> respAccount,
-				"amount" 	-> multiplier *amount
+				"amount" 	-> multiplier *amount,
+				"reason" 	-> reason
 			);
 		}else{
 			println("Invalid input");
