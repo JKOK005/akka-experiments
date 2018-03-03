@@ -28,6 +28,22 @@ object Main extends App{
 		}
 	}
 
+	private[this] def deleteAccount(account: String) = {
+		implicit val timeout: Timeout = Timeout(500 millis);
+		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
+
+		future onComplete {
+			case Success(accounts) 	=> 	{
+											if(accounts.contains(account)){
+												AccountsTrackerWorker ! accounts.filterNot(elm => elm == account);
+											}else{
+												println("Account: $account is not present");
+											}
+										}
+			case Failure(ex) 		=> ex.printStackTrace;
+		}
+	}
+
 	private[this] def showExistingAccounts() = {
 		AccountsTrackerWorker ! "showAccounts";
 	}
@@ -41,11 +57,17 @@ object Main extends App{
 													case Some(name) => this.newAccountCreation(name.asInstanceOf[String]);
 												};
 											};
-			case "delete_account" 		=> 
-			case "show_account" 		=> this.showExistingAccounts();
-			case "modify_account" 		=> 
-			case "terminate" 			=> break;
-			case "invalid" 				=> Unit;
+			
+			case "delete_account" 		=> 	{
+												userInput.get("name") match {
+													case Some(name) => this.deleteAccount(name.asInstanceOf[String]);
+												};
+											};
+			
+			case "show_account" 		=> 	this.showExistingAccounts();
+			case "modify_account" 		=> 	
+			case "terminate" 			=> 	break;
+			case "invalid" 				=> 	Unit;
 		}
 	}
 
