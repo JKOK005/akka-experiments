@@ -11,6 +11,7 @@ import Finance.Akka.Models.AccountSummaryModels._;
 import com.typesafe.config.ConfigFactory;
 import Finance.Akka.Utils._;
 import util.control.Breaks._;
+import java.lang.String.format;
 
 object Main extends App{
 	val system = ActorSystem("FinanceTrackerApp");
@@ -62,7 +63,7 @@ object Main extends App{
 											if(accounts.contains(account)){
 												rootsupervisor ! InstructActor(account, Receipt(amount, reason));
 											}else{
-												println("Account: $account is not present");
+												println(format("Account: %s is not present", account));
 											}
 										}
 			case Failure(ex) 		=> ex.printStackTrace;
