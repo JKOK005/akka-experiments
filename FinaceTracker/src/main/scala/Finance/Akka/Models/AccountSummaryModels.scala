@@ -21,4 +21,5 @@ object AccountSummaryModels{
 
 	case class CreateActor(actorId: String);
 	case class InstructActor(actorId: String, command: Any);
+	case class Synchronize(tellers: List[String]);
 }

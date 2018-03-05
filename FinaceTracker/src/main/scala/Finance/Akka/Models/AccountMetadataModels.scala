@@ -7,7 +7,7 @@ object AccountMetadataModels{
 		}
 
 		def getCurrentAccounts() = {
-			if(presentState.length == 0) presentState;
+			if(presentState.length == 0) List();
 			else presentState.head;
 		};
 

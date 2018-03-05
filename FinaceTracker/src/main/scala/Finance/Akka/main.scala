@@ -16,7 +16,7 @@ import java.lang.String.format;
 object Main extends App{
 	val system = ActorSystem("FinanceTrackerApp");
 	val AccountsTrackerWorker = system.actorOf(AccountsTracker.props(), "account-tracker");
-	val rootsupervisor = system.actorOf(Props[SupervisorWorker], "account-supervisor");
+	val rootsupervisor = system.actorOf(SupervisorWorker.props(), "account-supervisor");
 	val screen = new BankUserInterface();
 
 	private[this] def newAccountCreation(newAccount: String) = {
@@ -87,12 +87,4 @@ object Main extends App{
 	}
 
 	Await.ready(system.terminate(), 5 seconds);
-
-	// val accountIds 	= List("savings-account", "bills", "SOWTHWWF");
-	// AccountsTrackerWorker ! accountIds;
-	// AccountsTrackerWorker ! "showAccounts";
-
-	// rootsupervisor ! CreateActor("savings-account");
-	// rootsupervisor ! InstructActor("savings-account","showValue");
-	// rootsupervisor ! InstructActor("savings-account","showReceipts");
 }
