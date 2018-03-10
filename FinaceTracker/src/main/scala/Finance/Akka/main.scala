@@ -8,6 +8,7 @@ import akka.util.Timeout;
 import akka.actor.{ActorSystem, Props};
 import Finance.Akka.Workers._;
 import Finance.Akka.Models.AccountSummaryModels._;
+import Finance.Akka.Models.AccountMetadataModels._;
 import com.typesafe.config.ConfigFactory;
 import Finance.Akka.Utils._;
 import util.control.Breaks._;
@@ -19,34 +20,8 @@ object Main extends App{
 	val rootsupervisor = system.actorOf(SupervisorWorker.props(), "account-supervisor");
 	val screen = new BankUserInterface();
 
-	private[this] def newAccountCreation(newAccount: String) = {
-		implicit val timeout: Timeout = Timeout(500 millis);
-		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
-
-		future onComplete {
-			case Success(accounts) 	=> 	{	
-											AccountsTrackerWorker ! newAccount::accounts;
-											rootsupervisor ! CreateActor(newAccount);
-										}
-			case Failure(ex) 		=> ex.printStackTrace;
-		}
-	}
-
-	private[this] def deleteAccount(account: String) = {
-		implicit val timeout: Timeout = Timeout(500 millis);
-		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
-
-		future onComplete {
-			case Success(accounts) 	=> 	{
-											if(accounts.contains(account)){
-												AccountsTrackerWorker ! accounts.filterNot(elm => elm == account);
-											}else{
-												println("Account: $account is not present");
-											}
-										}
-			case Failure(ex) 		=> ex.printStackTrace;
-		}
-	}
+	private[this] def newAccountCreation(account: String) = AccountsTrackerWorker ! ModifyAccounts(account, "add");
+	private[this] def deleteAccount(account: String) = AccountsTrackerWorker ! ModifyAccounts(account, "delete");
 
 	private[this] def showExistingAccounts() = {
 		implicit val timeout: Timeout = Timeout(500 millis);

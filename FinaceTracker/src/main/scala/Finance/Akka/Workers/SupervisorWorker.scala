@@ -57,7 +57,7 @@ class SupervisorWorker extends PersistentActorBase{
 			log.info("Creating actor ID: {}", actorId);
 			context.child(actorId) match {
 				case Some(referredActor) => log.warning("Actor {} alread exists", actorId);
-				case None => val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);;
+				case None => val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);
 			}
 		}
 

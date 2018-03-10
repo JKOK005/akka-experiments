@@ -45,6 +45,16 @@ class AccountsTracker extends PersistentActorBase{
 			}
 		}
 
+		case ModifyAccounts(account: String, action: String) => {
+			val currentAccounts: List[String] = state.getCurrentAccounts();
+			if(!currentAccounts.contains(account) && action == "add"){
+				val latestAccounts 	= account :: state.getCurrentAccounts();
+				self ! latestAccounts;
+			}else if(currentAccounts.contains(account) && action == "delete"){
+				self ! currentAccounts.filter(_ != account);
+			}
+		}
+
 		case "showAccounts" => {
 			println("Present account IDs");
 			state.getCurrentAccounts.foreach{println};

@@ -15,4 +15,6 @@ object AccountMetadataModels{
 			presentState.length;
 		}
 	}
+
+	case class ModifyAccounts(account: String, action: String);
 }

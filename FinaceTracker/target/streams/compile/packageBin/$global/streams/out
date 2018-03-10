@@ -40,6 +40,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Workers/AccountsTracker$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Workers/AccountsTracker$$anonfun$receiveCommand$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Workers/AccountsTracker$$anonfun$receiveCommand$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountMetadataModels$ModifyAccounts.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models/AccountMetadataModels$ModifyAccounts.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountSummaryModels$Receipt.class[0m
@@ -76,6 +78,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Workers/AccountsTracker.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountSummaryModels$InstructActor.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models/AccountSummaryModels$InstructActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models/AccountMetadataModels$ModifyAccounts$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Models/AccountMetadataModels$ModifyAccounts$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Main.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/johan/Desktop/johan/akka-experiments/FinaceTracker/target/scala-2.12/classes/Finance/Akka/Main.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Finance/Akka/Models[0m
