@@ -55,7 +55,10 @@ class SupervisorWorker extends PersistentActorBase{
 	override def receiveCommand: Receive = {
 		case CreateActor(actorId: String) => {
 			log.info("Creating actor ID: {}", actorId);
-			val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);
+			context.child(actorId) match {
+				case Some(referredActor) => log.warning("Actor {} alread exists", actorId);
+				case None => val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);;
+			}
 		}
 
 		case DeleteActor(actorId: String) => {
