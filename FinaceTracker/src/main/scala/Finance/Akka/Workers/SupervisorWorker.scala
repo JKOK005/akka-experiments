@@ -58,15 +58,13 @@ class SupervisorWorker extends PersistentActorBase{
 			val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);
 		}
 
-		case Synchronize(tellers: List[String]) => {
-			val currentTellers: List[String] 	= state.getCurrentAccounts();
-			val tellersToCreate: List[String] 	= tellers diff currentTellers;
-			val tellersToDelete: List[String] 	= currentTellers diff tellers;
-			for(eachTellerToCreate <- tellersToCreate) {
-				self ! CreateActor(eachTellerToCreate);
+		case DeleteActor(actorId: String) => {
+			log.info("Killing actor {}", actorId);
+			context.child(actorId) match {
+				case Some(referredActor) => referredActor ! PoisonPill;
+				case None => log.warning("Actor {} does not yet exist", actorId);
 			}
-			// To be implemented: Delete unnecessary tellers
-		}	
+		}
 
 		case InstructActor(actorId: String, command: Any) => { 
 			context.child(actorId) match {
@@ -74,5 +72,18 @@ class SupervisorWorker extends PersistentActorBase{
 				case None => log.warning("Actor {} does not yet exist", actorId);
 			}
 		}
+
+		case Synchronize(tellers: List[String]) => {
+			val currentTellers: List[String] 		= state.getCurrentAccounts();
+			if(currentTellers != tellers){
+				val tellersToCreate: List[String] 	= tellers diff currentTellers;
+				val tellersToDelete: List[String] 	= currentTellers diff tellers;
+				for(eachTellerToCreate <- tellersToCreate) self ! CreateActor(eachTellerToCreate);
+				for(eachTellerToDelete <- tellersToDelete) self ! DeleteActor(eachTellerToDelete);
+				persist(tellers)(addState);
+			}else{
+				log.info("Received list {} is a match to {}. Nothing to synchronize.", tellers, currentTellers);
+			}
+		}			
 	}
 }
