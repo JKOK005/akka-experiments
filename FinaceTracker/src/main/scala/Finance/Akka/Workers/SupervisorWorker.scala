@@ -87,6 +87,8 @@ class SupervisorWorker extends PersistentActorBase{
 			}else{
 				log.info("Received list {} is a match to {}. Nothing to synchronize.", tellers, currentTellers);
 			}
-		}			
+		}
+
+					
 	}
 }

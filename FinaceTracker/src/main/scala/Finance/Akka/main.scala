@@ -23,6 +23,16 @@ object Main extends App{
 	private[this] def newAccountCreation(account: String) = AccountsTrackerWorker ! ModifyAccounts(account, "add");
 	private[this] def deleteAccount(account: String) = AccountsTrackerWorker ! ModifyAccounts(account, "delete");
 
+	private[this] def saveChanges() = {
+		implicit val timeout: Timeout = Timeout(500 millis);
+		val future: Future[List[String]] = (AccountsTrackerWorker ? "getAccounts").mapTo[List[String]];
+
+		future onComplete {
+			case Success(accounts) 	=> rootsupervisor ! Synchronize(accounts);
+			case Failure(ex) 		=> ex.printStackTrace;
+		}
+	}
+
 	private[this] def showExistingAccounts() = {
 		implicit val timeout: Timeout = Timeout(500 millis);
 		val future: Future[String] 	= (AccountsTrackerWorker ? "showAccounts").mapTo[String];
@@ -51,6 +61,7 @@ object Main extends App{
 		userInput.getOrElse("action", "invalid") match {
 			case "create_new_account" 	=> 	this.newAccountCreation(userInput("name").asInstanceOf[String]);
 			case "delete_account" 		=> 	this.deleteAccount(userInput("name").asInstanceOf[String]);
+			case "save_changes" 		=> 	this.saveChanges();
 			case "show_account" 		=> 	this.showExistingAccounts();
 			case "modify_account" 		=> 	this.modifyAccount(userInput("name").asInstanceOf[String], 
 																userInput("amount").asInstanceOf[Double], 

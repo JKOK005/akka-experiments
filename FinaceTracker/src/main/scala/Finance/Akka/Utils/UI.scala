@@ -16,6 +16,11 @@ class BankUserInterface{
 		);
 	}
 
+	private[this] def saveChanges(): Map[String, Any] = {
+		Map("action" 	-> "save_changes", 
+		);
+	}
+
 	private[this] def showAccountInformation(): Map[String, Any] = {
 		Map("action" 	-> "show_account");
 	}
@@ -60,9 +65,10 @@ class BankUserInterface{
 		println("Please select from the various options");
 		println("1) Create a new account");
 		println("2) Delete existing account");
-		println("3) Show accounts and balance");
-		println("4) Modify existing account");
-		println("5) Exit app");
+		println("3) Save changes"); 
+		println("4) Show accounts and balance");
+		println("5) Modify existing account");
+		println("6) Exit app");
 	}
 
 	def receiveUserInput(): Map[String, Any] = {
@@ -71,9 +77,10 @@ class BankUserInterface{
 		input match{
 			case "1" => this.newAccountCreation();
 			case "2" => this.deleteExistingAccount();
-			case "3" => this.showAccountInformation();
-			case "4" => this.modifyAccount();
-			case "5" => this.terminateApp();
+			case "3" => this.saveChanges();
+			case "4" => this.showAccountInformation();
+			case "5" => this.modifyAccount();
+			case "6" => this.terminateApp();
 			case _ => {
 				println("You have selected an invalid input");
 				Map("action" 	-> "invalid");
