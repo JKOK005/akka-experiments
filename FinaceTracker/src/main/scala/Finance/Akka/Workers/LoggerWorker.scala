@@ -13,7 +13,7 @@ class LoggerWorkerClass extends Actor with ActorLogging{
 	override def postStop() = log.info("Actor {}-logger shutting down", self.path.name);
 
 	override def receive:Receive = {
-		case msg: String => println("Current value in {}: {}", self.path.name, msg);
+		case msg: String => println("Current value in %s: %s".format(self.path.name, msg));
 		case receipt: List[Receipt] => {
 			log.info("Begin start of records:");
 			receipt.foreach{println};

@@ -1102,3 +1102,113 @@ scala.MatchError: Some(Actor[akka://FinanceTrackerApp/user/account-supervisor/tt
 2018-03-11 11:48:47,056 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor tt shutting down
 2018-03-11 11:48:47,056 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-27 - Actor account-supervisor shutting down
 2018-03-11 11:48:47,061 DEBUG akka.event.EventStream FinanceTrackerApp-akka.actor.default-dispatcher-28 - shutting down: StandardOutLogger started
+2018-03-11 11:51:34,292 INFO  akka.event.slf4j.Slf4jLogger  - Slf4jLogger started
+2018-03-11 11:51:34,296 DEBUG akka.event.EventStream run-main-0 - logger log1-Slf4jLogger started
+2018-03-11 11:51:34,299 DEBUG akka.event.EventStream run-main-0 - Default Loggers started
+2018-03-11 11:51:34,322 DEBUG a.p.Persistence(akka://FinanceTrackerApp) FinanceTrackerApp-akka.actor.default-dispatcher-2 - Create plugin: akka.persistence.journal.leveldb akka.persistence.journal.leveldb.LeveldbJournal
+2018-03-11 11:51:34,347 DEBUG a.p.Persistence(akka://FinanceTrackerApp) FinanceTrackerApp-akka.actor.default-dispatcher-4 - Create plugin: akka.persistence.snapshot-store.local akka.persistence.snapshot.local.LocalSnapshotStore
+2018-03-11 11:51:34,354 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor account-supervisor_logger-logger starting up
+2018-03-11 11:51:34,355 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-9 - Actor account-tracker_logger-logger starting up
+2018-03-11 11:51:34,357 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-4 - Actor account-supervisor starting up
+2018-03-11 11:51:34,357 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-2 - Actor account-tracker starting up
+2018-03-11 11:51:34,423 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-2 - Restoration of actor via snapshot
+2018-03-11 11:51:34,505 DEBUG a.s.Serialization(akka://FinanceTrackerApp) FinanceTrackerApp-akka.persistence.dispatchers.default-replay-dispatcher-12 - Using serializer [akka.persistence.serialization.MessageSerializer] for message [akka.persistence.PersistentRepr]
+2018-03-11 11:51:34,516 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Restoration completed for account-supervisor
+2018-03-11 11:51:34,519 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: testaccount
+2018-03-11 11:51:34,521 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: tt
+2018-03-11 11:51:34,521 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-9 - Actor testaccount_logger-logger starting up
+2018-03-11 11:51:34,521 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: newAccount
+2018-03-11 11:51:34,522 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-4 - Actor testaccount starting up
+2018-03-11 11:51:34,522 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-9 - Actor newAccount_logger-logger starting up
+2018-03-11 11:51:34,522 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-6 - Actor newAccount starting up
+2018-03-11 11:51:34,524 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-2 - Creating actor ID: investment
+2018-03-11 11:51:34,524 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-9 - Restoration completed for testaccount
+2018-03-11 11:51:34,524 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-4 - Actor investment starting up
+2018-03-11 11:51:34,524 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor investment_logger-logger starting up
+2018-03-11 11:51:34,528 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor tt starting up
+2018-03-11 11:51:34,528 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-6 - Actor tt_logger-logger starting up
+2018-03-11 11:51:34,530 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-2 - Restoration completed for tt
+2018-03-11 11:51:34,531 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Restoration completed for account-tracker
+2018-03-11 11:51:34,532 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-14 - Restoration completed for investment
+2018-03-11 11:51:34,537 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-17 - Restoration completed for newAccount
+2018-03-11 11:51:38,072 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-shutdown-hook-1 - Starting coordinated shutdown from JVM shutdown hook
+2018-03-11 11:51:38,077 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-shutdown-hook-1 - Performing phase [before-service-unbind] with [0] tasks
+2018-03-11 11:51:38,080 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [service-unbind] with [0] tasks
+2018-03-11 11:51:38,080 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [service-requests-done] with [0] tasks
+2018-03-11 11:51:38,081 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [service-stop] with [0] tasks
+2018-03-11 11:51:38,081 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [before-cluster-shutdown] with [0] tasks
+2018-03-11 11:51:38,082 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [cluster-sharding-shutdown-region] with [0] tasks
+2018-03-11 11:51:38,082 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [cluster-leave] with [0] tasks
+2018-03-11 11:51:38,083 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [cluster-exiting] with [0] tasks
+2018-03-11 11:51:38,083 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [cluster-exiting-done] with [0] tasks
+2018-03-11 11:51:38,084 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [cluster-shutdown] with [0] tasks
+2018-03-11 11:51:38,084 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [before-actor-system-terminate] with [0] tasks
+2018-03-11 11:51:38,089 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-16 - Performing phase [actor-system-terminate] with [1] tasks: [terminate-system]
+2018-03-11 11:51:38,103 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-15 - Actor account-tracker_logger-logger shutting down
+2018-03-11 11:51:38,104 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-14 - Actor account-supervisor_logger-logger shutting down
+2018-03-11 11:51:38,105 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-6 - Actor account-tracker shutting down
+2018-03-11 11:51:38,106 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-6 - Actor investment_logger-logger shutting down
+2018-03-11 11:51:38,107 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-15 - Actor newAccount_logger-logger shutting down
+2018-03-11 11:51:38,108 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-6 - Actor newAccount shutting down
+2018-03-11 11:51:38,108 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-15 - Actor investment shutting down
+2018-03-11 11:51:38,109 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-14 - Actor tt_logger-logger shutting down
+2018-03-11 11:51:38,109 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor testaccount_logger-logger shutting down
+2018-03-11 11:51:38,110 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-14 - Actor tt shutting down
+2018-03-11 11:51:38,110 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor testaccount shutting down
+2018-03-11 11:51:38,111 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-13 - Actor account-supervisor shutting down
+2018-03-11 11:51:38,121 DEBUG akka.event.EventStream FinanceTrackerApp-akka.actor.default-dispatcher-13 - shutting down: StandardOutLogger started
+2018-03-11 11:52:48,433 INFO  akka.event.slf4j.Slf4jLogger  - Slf4jLogger started
+2018-03-11 11:52:48,437 DEBUG akka.event.EventStream run-main-0 - logger log1-Slf4jLogger started
+2018-03-11 11:52:48,441 DEBUG akka.event.EventStream run-main-0 - Default Loggers started
+2018-03-11 11:52:48,468 DEBUG a.p.Persistence(akka://FinanceTrackerApp) FinanceTrackerApp-akka.actor.default-dispatcher-3 - Create plugin: akka.persistence.journal.leveldb akka.persistence.journal.leveldb.LeveldbJournal
+2018-03-11 11:52:48,494 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-4 - Actor account-supervisor_logger-logger starting up
+2018-03-11 11:52:48,495 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-2 - Actor account-tracker_logger-logger starting up
+2018-03-11 11:52:48,495 DEBUG a.p.Persistence(akka://FinanceTrackerApp) FinanceTrackerApp-akka.actor.default-dispatcher-5 - Create plugin: akka.persistence.snapshot-store.local akka.persistence.snapshot.local.LocalSnapshotStore
+2018-03-11 11:52:48,502 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor account-supervisor starting up
+2018-03-11 11:52:48,507 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor account-tracker starting up
+2018-03-11 11:52:48,575 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-4 - Restoration of actor via snapshot
+2018-03-11 11:52:48,637 DEBUG a.s.Serialization(akka://FinanceTrackerApp) FinanceTrackerApp-akka.persistence.dispatchers.default-replay-dispatcher-13 - Using serializer [akka.persistence.serialization.MessageSerializer] for message [akka.persistence.PersistentRepr]
+2018-03-11 11:52:48,650 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Restoration completed for account-supervisor
+2018-03-11 11:52:48,653 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: testaccount
+2018-03-11 11:52:48,654 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: tt
+2018-03-11 11:52:48,654 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor testaccount_logger-logger starting up
+2018-03-11 11:52:48,660 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: newAccount
+2018-03-11 11:52:48,661 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-2 - Actor tt_logger-logger starting up
+2018-03-11 11:52:48,661 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-4 - Actor testaccount starting up
+2018-03-11 11:52:48,661 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor tt starting up
+2018-03-11 11:52:48,661 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor newAccount_logger-logger starting up
+2018-03-11 11:52:48,661 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Creating actor ID: investment
+2018-03-11 11:52:48,661 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-16 - Actor investment_logger-logger starting up
+2018-03-11 11:52:48,661 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor investment starting up
+2018-03-11 11:52:48,664 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Actor newAccount starting up
+2018-03-11 11:52:48,666 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-16 - Restoration completed for account-tracker
+2018-03-11 11:52:48,666 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-15 - Restoration completed for testaccount
+2018-03-11 11:52:48,669 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Restoration completed for tt
+2018-03-11 11:52:48,669 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Restoration completed for investment
+2018-03-11 11:52:48,669 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-5 - Restoration completed for newAccount
+2018-03-11 11:52:57,825 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-shutdown-hook-1 - Starting coordinated shutdown from JVM shutdown hook
+2018-03-11 11:52:57,829 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-shutdown-hook-1 - Performing phase [before-service-unbind] with [0] tasks
+2018-03-11 11:52:57,839 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [service-unbind] with [0] tasks
+2018-03-11 11:52:57,840 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [service-requests-done] with [0] tasks
+2018-03-11 11:52:57,844 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [service-stop] with [0] tasks
+2018-03-11 11:52:57,845 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [before-cluster-shutdown] with [0] tasks
+2018-03-11 11:52:57,845 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [cluster-sharding-shutdown-region] with [0] tasks
+2018-03-11 11:52:57,846 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [cluster-leave] with [0] tasks
+2018-03-11 11:52:57,846 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [cluster-exiting] with [0] tasks
+2018-03-11 11:52:57,847 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [cluster-exiting-done] with [0] tasks
+2018-03-11 11:52:57,847 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [cluster-shutdown] with [0] tasks
+2018-03-11 11:52:57,848 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [before-actor-system-terminate] with [0] tasks
+2018-03-11 11:52:57,848 DEBUG akka.actor.CoordinatedShutdown FinanceTrackerApp-akka.actor.default-dispatcher-15 - Performing phase [actor-system-terminate] with [1] tasks: [terminate-system]
+2018-03-11 11:52:57,857 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor account-supervisor_logger-logger shutting down
+2018-03-11 11:52:57,858 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-16 - Actor account-tracker_logger-logger shutting down
+2018-03-11 11:52:57,859 INFO  Finance.Akka.Workers.AccountsTracker FinanceTrackerApp-akka.actor.default-dispatcher-16 - Actor account-tracker shutting down
+2018-03-11 11:52:57,860 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor investment_logger-logger shutting down
+2018-03-11 11:52:57,860 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor investment shutting down
+2018-03-11 11:52:57,860 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor newAccount_logger-logger shutting down
+2018-03-11 11:52:57,860 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-18 - Actor testaccount_logger-logger shutting down
+2018-03-11 11:52:57,861 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor newAccount shutting down
+2018-03-11 11:52:57,861 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-3 - Actor testaccount shutting down
+2018-03-11 11:52:57,861 INFO  F.Akka.Workers.LoggerWorkerClass FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor tt_logger-logger shutting down
+2018-03-11 11:52:57,862 INFO  Finance.Akka.Workers.TellerWorker FinanceTrackerApp-akka.actor.default-dispatcher-7 - Actor tt shutting down
+2018-03-11 11:52:57,862 INFO  F.Akka.Workers.SupervisorWorker FinanceTrackerApp-akka.actor.default-dispatcher-15 - Actor account-supervisor shutting down
+2018-03-11 11:52:57,866 DEBUG akka.event.EventStream FinanceTrackerApp-akka.actor.default-dispatcher-19 - shutting down: StandardOutLogger started
