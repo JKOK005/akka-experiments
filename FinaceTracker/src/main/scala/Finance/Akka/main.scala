@@ -11,7 +11,6 @@ import Finance.Akka.Models.AccountSummaryModels._;
 import Finance.Akka.Models.AccountMetadataModels._;
 import com.typesafe.config.ConfigFactory;
 import Finance.Akka.Utils._;
-import util.control.Breaks._;
 import java.lang.String.format;
 
 object Main extends App{
@@ -62,7 +61,8 @@ object Main extends App{
 		}
 	}
 
-	while(true){
+	var isLoop = true
+	while(isLoop){
 		screen.displayMainView();
 		var userInput: Map[String, Any] = screen.receiveUserInput();
 		userInput.getOrElse("action", "invalid") match {
@@ -74,9 +74,10 @@ object Main extends App{
 																userInput("amount").asInstanceOf[Double], 
 																userInput("reason").asInstanceOf[String]
 															);
-			case "terminate" 			=> 	break;
+			case "terminate" 			=> 	isLoop = false;
 			case "invalid" 				=> 	Unit;
 		}
 	}
 	Await.ready(system.terminate(), 5 seconds);
+	println("Exiting app.")
 }
