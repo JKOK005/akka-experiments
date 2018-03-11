@@ -77,6 +77,7 @@ object Main extends App{
 			case "terminate" 			=> 	isLoop = false;
 			case "invalid" 				=> 	Unit;
 		}
+		Thread.sleep(500);
 	}
 	Await.ready(system.terminate(), 5 seconds);
 	println("Exiting app.")
