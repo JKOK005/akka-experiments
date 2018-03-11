@@ -27,7 +27,7 @@ Any logging features from the app is handled by **Slf4jLogger** with logs being 
 
 ### Architecture
 The Finance tracker app was designed based on the following architecture: 
-(/pics/finance_tracker_overview.png)
+![Finance tracker app overview](pics/finance_tracker_overview.png)
 
 ### Installation
 To launch the UI, simply run 
