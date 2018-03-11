@@ -1,6 +1,6 @@
 package Finance.Akka.Workers;
 
-import akka.actor.{Props};
+import akka.actor.{Props, PoisonPill};
 import Finance.Akka.Models.AccountSummaryModels._;
 import akka.persistence._;
 
@@ -34,6 +34,11 @@ class TellerWorker extends PersistentActorBase{
 		}
 		case "showValue" 	=> this.loggerActorRef ! state.getTotalAmount().toString;
 		case "showReceipts" => this.loggerActorRef ! state.getReceipts();
+		case "kill" 		=> 	{
+									val offsetAmt 	= -1 *state.getTotalAmount();
+									self ! Receipt(offsetAmt, "Offset balance to 0 due to kill signal for account");
+									self ! PoisonPill;
+								}
 
 		case "takeSnapShot" => saveSnapshot(state);
 		case SaveSnapshotSuccess(metadata) =>

@@ -1,6 +1,6 @@
 package Finance.Akka.Workers;
 
-import akka.actor.{ActorRef, OneForOneStrategy, Props, PoisonPill};
+import akka.actor.{ActorRef, OneForOneStrategy, Props};
 import akka.actor.SupervisorStrategy._;
 import Finance.Akka.Models.AccountSummaryModels._;
 import Finance.Akka.Models.AccountMetadataModels._;
@@ -66,7 +66,7 @@ class SupervisorWorker extends PersistentActorBase{
 		case DeleteActor(actorId: String) => {
 			log.info("Killing actor {}", actorId);
 			context.child(actorId) match {
-				case Some(referredActor) => referredActor ! PoisonPill;
+				case Some(referredActor) => referredActor ! "kill";
 				case None => log.warning("Deleteion failed. Actor {} does not yet exist", actorId);
 			}
 		}
