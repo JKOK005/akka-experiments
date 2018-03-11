@@ -25,6 +25,12 @@ state.
 
 Any logging features from the app is handled by **Slf4jLogger** with logs being stored into the log directory in the project's root.  
 
+Finally, in order to effect changes for account creation or deletion, the user has to issue the command to "save_changes". This command forces a 
+synchronize operation, creating any new accounts issued by the user and deleting unwanted accounts. Deletion is done on a "soft" basis, 
+meaning that instead of wiping out the entire persistent storage of the actor to be killed, we append an offset to its transaction history to make its 
+total amount 0. If the user chooses to recreate the account with the same name, the account will be restored via Akka's persistence framework and we 
+are still able to retrieve its history of transactions.
+
 ### Architecture
 The Finance tracker app was designed based on the following architecture: 
 ![Finance tracker app overview](pics/finance_tracker_overview.png)
