@@ -35,8 +35,15 @@ object Main extends App{
 
 	private[this] def showExistingAccounts() = {
 		implicit val timeout: Timeout = Timeout(500 millis);
-		val future: Future[String] 	= (AccountsTrackerWorker ? "showAccounts").mapTo[String];
-		Await.result(future, 500 millis); 	// Blocks until all accounts have been shown
+		val future: Future[List[String]] 	= (rootsupervisor ? "getAccounts").mapTo[List[String]];
+
+		future onComplete {
+			case Success(accounts) 	=> 	{
+											println("Your account summary: ")
+											for(account <- accounts) rootsupervisor ! InstructActor(account, "showValue");
+										}
+			case Failure(ex) 		=> ex.printStackTrace;
+		}
 	}
 
 	private[this] def modifyAccount(account: String, amount: Double, reason: String) = {

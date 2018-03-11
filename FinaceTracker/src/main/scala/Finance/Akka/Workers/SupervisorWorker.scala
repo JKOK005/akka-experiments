@@ -14,7 +14,6 @@ object SupervisorWorker {
 
 class SupervisorWorker extends PersistentActorBase{
 	var state = BankAccountsRecord();
-	this.createTellersOnStart();
 
 	override def preRestart(reason: Throwable, message: Option[Any]) = {
 		println(String.format("Supervisor {} is now restarting ... "), self.path.name);
@@ -49,14 +48,17 @@ class SupervisorWorker extends PersistentActorBase{
 			log.info("Restoration of actor via snapshot");
 			state = snapshot;
 		}
-		case RecoveryCompleted => log.info("Restoration completed for {}", persistenceId)
+		case RecoveryCompleted => 	{
+										log.info("Restoration completed for {}", persistenceId);
+										this.createTellersOnStart();
+									}
 	}
 
 	override def receiveCommand: Receive = {
 		case CreateActor(actorId: String) => {
 			log.info("Creating actor ID: {}", actorId);
 			context.child(actorId) match {
-				case Some(referredActor) => log.warning("Actor {} alread exists", actorId);
+				case Some(referredActor) => log.warning("Creation failed. Actor {} alread exists", actorId);
 				case None => val newActor: ActorRef = context.actorOf(TellerWorker.props(), actorId);
 			}
 		}
@@ -65,14 +67,14 @@ class SupervisorWorker extends PersistentActorBase{
 			log.info("Killing actor {}", actorId);
 			context.child(actorId) match {
 				case Some(referredActor) => referredActor ! PoisonPill;
-				case None => log.warning("Actor {} does not yet exist", actorId);
+				case None => log.warning("Deleteion failed. Actor {} does not yet exist", actorId);
 			}
 		}
 
 		case InstructActor(actorId: String, command: Any) => { 
 			context.child(actorId) match {
 				case Some(referredActor) => referredActor ! command;
-				case None => log.warning("Actor {} does not yet exist", actorId);
+				case None => log.warning("Instruction failed. Actor {} does not yet exist", actorId);
 			}
 		}
 
@@ -89,6 +91,6 @@ class SupervisorWorker extends PersistentActorBase{
 			}
 		}
 
-					
+		case "getAccounts" => sender() ! state.getCurrentAccounts();
 	}
 }
