@@ -1,5 +1,0 @@
-run
-set logLevel := Level.Info
-logLevel
-run
-logLevel
